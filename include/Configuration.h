@@ -4,10 +4,12 @@
 #include "Joystick.h"
 #include "RoboticJoint.h"
 
-
+#define INTERRUPT_TIME 10
 #define DEADZONE 100
+// #define NO_INVERTER
 
 #if defined(ARDUINO_UNO)
+    #define CLOCK_SPEED 16000000
 
     #define joystickPins { A0, A1, 0 }
 
@@ -18,6 +20,7 @@
     #define gripperPins { 5, 11, A2 }
 
 #elif defined(ARDUINO_MEGA)
+    #define CLOCK_SPEED 16000000
 
     #define joystickPins { A15, A14, 30 }
 
@@ -29,5 +32,5 @@
 
 #endif
 
-#define roboticJointPID { 5, 0.001, 0.01 }
+#define roboticJointPID { 5, 0.1, 0.01 }
 #define roboticArmDimensions { 10, 10, 10, 10 }

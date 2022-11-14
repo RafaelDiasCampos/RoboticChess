@@ -19,13 +19,15 @@ void RoboticJoint::control() {
         error = -error;
     }
 
-    int16_t pwm = pid.kp * error + pid.ki * errorSum + pid.kd * (error - lastError);
+    int16_t pwm;
+    pwm  = pid.kp * error;
+    pwm += pid.ki * errorSum * (INTERRUPT_TIME / 1000.0);
+    pwm += pid.kd * (error - lastError) / (INTERRUPT_TIME / 1000.0);
     if (pwm > 255) {
         pwm = 255;
     } else if (pwm < -255) {
         pwm = -255;
     }
-    int8_t dir = pwm > 0 ? HIGH : LOW;
 
     errorSum += error;
     lastError = error;
@@ -37,9 +39,10 @@ void RoboticJoint::control() {
         }
         else {
             digitalWrite(pins.dir, LOW);
-            analogWrite(pins.dir, abs(pwm));
+            analogWrite(pins.pwm, abs(pwm));
         }
     #else
+        int8_t dir = pwm > 0 ? HIGH : LOW;
         digitalWrite(pins.dir, dir);
         analogWrite(pins.pwm, abs(pwm));
     #endif
