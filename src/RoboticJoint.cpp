@@ -30,7 +30,18 @@ void RoboticJoint::control() {
     errorSum += error;
     lastError = error;
 
-    digitalWrite(pins.dir, dir);
-    analogWrite(pins.pwm, abs(pwm));
+    #ifdef NO_INVERTER
+        if (pwm > 0) {
+            digitalWrite(pins.pwm, LOW);
+            analogWrite(pins.dir, abs(pwm));
+        }
+        else {
+            digitalWrite(pins.dir, LOW);
+            analogWrite(pins.dir, abs(pwm));
+        }
+    #else
+        digitalWrite(pins.dir, dir);
+        analogWrite(pins.pwm, abs(pwm));
+    #endif
 }
     
