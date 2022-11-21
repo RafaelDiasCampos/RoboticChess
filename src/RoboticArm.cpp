@@ -12,8 +12,11 @@ void RoboticArm::moveTo(float x, float y, float z) {
     float baseAngle = atan2(y, x) * 180 / PI;
     float length = sqrt(x * x + y * y);
 
-    float shoulderAngle = acos((length * length + z * z - dimensions.shoulder_length * dimensions.shoulder_length - dimensions.elbow_length * dimensions.elbow_length) / (2 * dimensions.shoulder_length * dimensions.elbow_length)) * 180 / PI;
-    float elbowAngle = acos((dimensions.shoulder_length * dimensions.shoulder_length + dimensions.elbow_length * dimensions.elbow_length - length * length - z * z) / (2 * dimensions.shoulder_length * dimensions.elbow_length)) * 180 / PI;
+    float elbowAngleRad = acos((length * length + z * z - dimensions.shoulder_length * dimensions.shoulder_length - dimensions.elbow_length * dimensions.elbow_length) / (2 * dimensions.shoulder_length * dimensions.elbow_length));
+    float shoulderAngleRad = atan2(z, length) - atan2(dimensions.elbow_length * sin(elbowAngleRad), dimensions.shoulder_length + dimensions.elbow_length * cos(elbowAngleRad));
+
+    float elbowAngle = elbowAngleRad * 180 / PI;
+    float shoulderAngle = shoulderAngleRad * 180 / PI;
 
     float wristAngle = -90 + shoulderAngle + elbowAngle;
     float gripperAngle = 0;
