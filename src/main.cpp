@@ -9,7 +9,16 @@ typedef struct {
     float z;
 } Position;
 
+typedef struct {
+    float baseAngle;
+    float shoulderAngle;
+    float elbowAngle;
+    float wristAngle;
+    float gripperAngle;
+} Angles;
+
 Joystick joystick(joystickPins, DEADZONE);
+Joystick secondJoystick(secondJoystickPins, DEADZONE);
 
 RoboticJoint base(basePins, roboticJointPID);
 RoboticJoint shoulder(shoulderPins, roboticJointPID);
@@ -20,6 +29,7 @@ RoboticJoint gripper(gripperPins, roboticJointPID);
 RoboticArm roboticArm(roboticArmDimensions, base, shoulder, elbow, wrist, gripper);
 
 Position position = { 0, 0, 0 };
+Angles angles = { 0, 0, 0, 0, 0 };
 
 #if defined(ARDUINO_UNO)
 ISR(TIMER1_COMPA_vect){
@@ -55,7 +65,7 @@ void setup() {
   sei();
 }
 
-void loop() {
+void controlAssisted() {
   JoystickValues joystickValues = joystick.getValues();
   
   position.x += joystickValues.x_axis / 1000.0;
@@ -69,4 +79,43 @@ void loop() {
   // Serial.print(position.y);
   // Serial.print(" Z: ");
   // Serial.println(position.z);
+}
+
+void controlManual() {
+  JoystickValues joystickValues = joystick.getValues();
+  JoystickValues secondJoystickValues = secondJoystick.getValues();
+
+  angles.baseAngle += joystickValues.x_axis / 1000.0;
+  angles.shoulderAngle += joystickValues.y_axis / 1000.0;
+  angles.elbowAngle += secondJoystickValues.x_axis / 1000.0;
+  angles.wristAngle += secondJoystickValues.y_axis / 1000.0;
+
+  angles.gripperAngle += joystickValues.button / 10.0;
+  angles.gripperAngle -= secondJoystickValues.button / 10.0;
+
+  if (angles.baseAngle > 90) angles.baseAngle = 90;
+  if (angles.baseAngle < -90) angles.baseAngle = -90;
+  if (angles.shoulderAngle > 90) angles.shoulderAngle = 90;
+  if (angles.shoulderAngle < -90) angles.shoulderAngle = -90;
+  if (angles.elbowAngle > 90) angles.elbowAngle = 90;
+  if (angles.elbowAngle < -90) angles.elbowAngle = -90;
+  if (angles.wristAngle > 90) angles.wristAngle = 90;
+  if (angles.wristAngle < -90) angles.wristAngle = -90;
+  if (angles.gripperAngle > 90) angles.gripperAngle = 90;
+  if (angles.gripperAngle < -90) angles.gripperAngle = -90;
+
+  Serial.print("Base: ");
+  Serial.print(angles.baseAngle);
+  Serial.print(" Shoulder: ");
+  Serial.print(angles.shoulderAngle);
+  Serial.print(" Elbow: ");
+  Serial.print(angles.elbowAngle);
+  Serial.print(" Wrist: ");
+  Serial.print(angles.wristAngle);
+  Serial.print(" Gripper: ");
+  Serial.println(angles.gripperAngle);  
+}
+
+void loop() {
+  controlManual();  
 }

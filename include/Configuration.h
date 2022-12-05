@@ -22,15 +22,16 @@
 #elif defined(ARDUINO_MEGA)
     #define CLOCK_SPEED 16000000
 
-    #define joystickPins { A15, A14, 30 }
+    #define joystickPins { A15, A14, 28 }
+    #define secondJoystickPins { A13, A12, 29 }
 
-    #define basePins { 32, 13, A13 }
-    #define shoulderPins { 33, 12, A12 }
-    #define elbowPins { 34, 11, A11 }
-    #define wristPins { 35, 10, A10 }
-    #define gripperPins { 36, 9, A9 }
+    #define basePins { 22, 13, A11 }
+    #define shoulderPins { 23, 12, A10 }
+    #define elbowPins { 24, 11, A9 }
+    #define wristPins { 25, 10, A8 }
+    #define gripperPins { 26, 9, A7 }
 
 #endif
 
-#define roboticJointPID { 5, 0.1, 0.01 }
+#define roboticJointPID { 50, 1, 0.01 }
 #define roboticArmDimensions { 10, 10, 10, 10 }

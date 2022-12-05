@@ -115,32 +115,32 @@
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{Dedico este trabalho aos alunos(as) do CEFET-MG.} \vspace*{\fill}
-\end{dedicatoria}
+% \begin{dedicatoria}
+%    \vspace*{\fill}
+%    \centering
+%    \noindent
+%    \textit{Dedico este trabalho aos alunos(as) do CEFET-MG.} \vspace*{\fill}
+% \end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-\begin{agradecimentos}
-Agradeço ao Latex e às pessoas que contribuiram com o desenvolvimento do Abntex2 por facilitarem a vida dos graduandos.
-\end{agradecimentos}
+% \begin{agradecimentos}
+% Agradeço ao Latex e às pessoas que contribuiram com o desenvolvimento do Abntex2 por facilitarem a vida dos graduandos.
+% \end{agradecimentos}
 % ---
 
 % ---
 % Epígrafe
 % ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		\textit{``As pessoas costumam dizer que a motivação não dura sempre. Bem, nem o efeito do banho, por isso recomenda-se diariamente.''\\
-		(Zig Ziglar)}
-	\end{flushright}
-\end{epigrafe}
+% \begin{epigrafe}
+%     \vspace*{\fill}
+% 	\begin{flushright}
+% 		\textit{``As pessoas costumam dizer que a motivação não dura sempre. Bem, nem o efeito do banho, por isso recomenda-se diariamente.''\\
+% 		(Zig Ziglar)}
+% 	\end{flushright}
+% \end{epigrafe}
 % ---
 
 % ---
@@ -150,21 +150,30 @@ Agradeço ao Latex e às pessoas que contribuiram com o desenvolvimento do Abnte
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
-Neste trabalho será realizado o controle digital de dois manipuladores robóticos para a movimentação de peças de Xadrez. 
-
-Inicialmente, será realizado o controle de um manipulador para possibilitar que um ser-humano jogue uma partida com o computador.
-Em seguida, o segundo manipulador será controlado para que duas pessoas joguem uma partida entre si.
-
- \textbf{Palavras-chave}: Manipuladores Robóticos. Controle Digital. Xadrez
+  Atualmente, existe uma grande procura por funcionários especializados em Tecnologia da Informação (TI) e áreas similares, sendo percebida no mundo todo uma carência de profissionais qualificados para atuar nessas áreas.
+  Esse problema ocorre parcialmente devido a um desinteresse à capacitação técnica por parte de crianças e jovens, frequentemente devido a uma concepção de que essas áreas são difíceis e/ou desinteressantes.
+  Com o foco neste aspecto, esse projeto visa desenvolver um sistema que possibilita o jogo de Xadrez entre duas pessoas por meio de manipuladores robóticos, que pode ser apresentado para crianças e jovens em feiras educativas e eventos similares, com o objetivo de introduzir conceitos básicos e instigar o interesse pelas áreas de computação, elétrica e controle.
+  Sistemas já existentes para mover peças de xadrez com braços mecânicos normalmente são utilizados para que uma máquina jogue contra um jogador humano em campeonatos, e com isso apresentam alto custo monetário e priorizam velocidade e precisão nos movimentos.
+  Por isso, eles não são muito adequados para usos educacionais, e têm-se a necessidade de desenvolver um sistema mais barato e com foco na simplicidade e na capacidade de proporcionar divertimento para os jogadores.
+  Tendo isso em vista, nesse projeto serão utilizados manipuladores robóticos comerciais já adquiridos pela instituição de ensino.
+  Para o controle dos manipuladores, serão utilizados dois \textit{joysticks}, um para cada jogador, que enviam sinais para uma placa de controle dos manipuladores por meio de um microcontrolador.
+  Até o momento, foi desenvolvido uma placa de controle para enviar os sinais para os manipuladores robóticos, e um \textit{software} para realizar a leitura dos \textit{joysticks} e enviar os sinais para a placa de controle.
+  Ainda está em desenvolvimento o \textit{software} que implementará a lógica do jogo de Xadrez, e o controle do segundo manipulador.
+ \textbf{Palavras-chave}: Manipuladores Robóticos. Controle Digital. Xadrez.
 \end{resumo}
 
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   In this thesis, will be implemented the digital control of two robotic arms to move chess pieces.
-
-   Initially, a single arm will be controlled in order to allow a human player to play against the computer.
-   Further on, the second arm will be controlled so that two human players can play against each other.
+  Currently, there is a great demand for specialized professionals in IT and in similar areas, and it is perceived worldwide a shortage of qualified professionals to work in these areas.
+  This problem occurs partially due to a lack of technical training on the part of children and young people, often due to a conception that these areas are difficult and / or uninteresting.
+  Focusing on this aspect, this project aims to develop a system that allows the game of Chess between two people through robotic manipulators, which can be presented to children and young people in educational fairs and similar events, with the aim of introducing basic concepts and instigating interest in the areas of computing, electrical and control.
+  Systems already exist to move chess pieces with mechanical arms usually used to allow a machine to play against a human player in tournaments, and with that they present high monetary cost and prioritize speed and precision in movements.
+  Therefore, they are not very suitable for educational uses, and there is a need to develop a cheaper system and with a focus on simplicity and the ability to provide fun for players.
+  Having this in mind, in this project will be used commercial robotic manipulators already acquired by the educational institution.
+  For the control of the manipulators, two joysticks will be used, one for each player, which send signals to a control board through a microcontroller.
+  So far, a control board has been developed to send signals to the robotic manipulators, and a software to read the joysticks and send signals to the control board.
+  The software that implements the logic of the Chess game is still under development, as well as the control of the second manipulator.
 
    \vspace{\onelineskip}
  
@@ -198,18 +207,20 @@ Em seguida, o segundo manipulador será controlado para que duas pessoas joguem 
 \begin{siglas}
   \item[CEFET-MG] Centro Federal de Educação Tecnológica de Minas Gerais
   \item[STEM] \textit{Science, Technology, Engineering and Mathematics} [Ciência, Tecnologia, Engenharia e Matemática]
+  \item[PID] \textit{Proportional Integral Derivative} [Proporcional Integral Derivativo]
+  \item[PWM] \textit{Pulse Width Modulation} [Modulação de Largura de Pulso]  
 \end{siglas}
 % ---
 
 % ---
 % inserir lista de símbolos
 % ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
 % ---
 
 % ---

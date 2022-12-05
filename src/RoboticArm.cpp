@@ -28,6 +28,14 @@ void RoboticArm::moveTo(float x, float y, float z) {
     gripper.setAngle(gripperAngle);
 }
 
+void RoboticArm::setAngles(float baseAngle, float shoulderAngle, float elbowAngle, float wristAngle, float gripperAngle) {
+    base.setAngle(baseAngle);
+    shoulder.setAngle(shoulderAngle);
+    elbow.setAngle(elbowAngle);
+    wrist.setAngle(wristAngle);
+    gripper.setAngle(gripperAngle);
+}
+
 void RoboticArm::control() {
     base.control();
     shoulder.control();
