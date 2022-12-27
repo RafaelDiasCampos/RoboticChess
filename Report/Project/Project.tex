@@ -16,7 +16,7 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
+	oneside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -42,6 +42,7 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{float}				% para controle de posicionamento de figuras e tabelas
+\usepackage{pdfpages} 			% para inclusão de PDFs
 % ---
 		
 
@@ -176,6 +177,8 @@ Engenharia de Computação.}
 \include{src/2_planejamento}
 
 \include{src/3_desenvolvimento}
+
+\include{src/4_conclusao}
 
 % ----------------------------------------------------------
 
