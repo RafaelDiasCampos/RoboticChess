@@ -1,0 +1,70 @@
+Added Component: Designator=LED1(Type 5mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/151051VS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Emitting color"; Value = "Bright Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Wuerth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "Type 5mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "151051VS04000"; VariantName = "[No Variations]"
+Added Component: Designator=LED2(Type 5mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.we-online.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/7448042001.pdfhttp://katalog.we-online.de/pbs/datasheet/151051VS04000.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Emitting color"; Value = "Bright Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Wuerth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "Type 5mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "151051VS04000"; VariantName = "[No Variations]"
+Added Component: Designator=R13(RESA60-630X240)
+Add component (AddParameter): Name = "Case\Package"; Value = "Axial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.yageo.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.yageo.com/documents/recent/Yageo%20LR_MFR_2013.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Apr-13"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "0.248 inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "155 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-55 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "200"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin Axial Lead, Dia 2.4 mm, Body Length 6.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "MFR-25"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Rating"; Value = "250 mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "10 kohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "250 V"; VariantName = "[No Variations]"
+Added Component: Designator=R14(RESA60-630X240)
+Add component (AddParameter): Name = "Case\Package"; Value = "Axial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.yageo.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.yageo.com/documents/recent/Yageo%20LR_MFR_2013.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Apr-13"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "0.248 inch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "155 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-55 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "200"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin Axial Lead, Dia 2.4 mm, Body Length 6.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "MFR-25"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Rating"; Value = "250 mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "10 kohm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "250 V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=LED1-2
+Added Pin To Net: NetName=+12 Pin=LED2-2
+Added Pin To Net: NetName=GND Pin=R13-2
+Added Pin To Net: NetName=GND Pin=R14-2
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_1 Pin=R13-1
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R14-1
+Added Net: Name=NetLED2_1
+Added Member To Class: ClassName=Schematic Member=Component LED1 151051VS04000
+Added Member To Class: ClassName=Schematic Member=Component LED2 151051VS04000
+Added Member To Class: ClassName=Schematic Member=Component R13 MFR-25FBF52-1K
+Added Member To Class: ClassName=Schematic Member=Component R14 MFR-25FBF52-1K

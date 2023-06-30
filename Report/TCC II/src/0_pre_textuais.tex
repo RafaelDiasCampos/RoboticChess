@@ -1,0 +1,293 @@
+%% Baseado no arquivo: 
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.6 laurocesar
+%% by abnTeX2 group at http://www.abntex.net.br/ 
+%% Adaptado para um modelo de TCC (Graduação)
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     
+% \end{fichacatalografica}
+
+\begin{fichacatalografica}
+~
+%\includepdf{fig_ficha_catalografica.pdf}
+% 	\sffamily
+% 	\vspace*{\fill}					% Posição vertical
+% 	\begin{center}					% Minipage Centralizado
+% 	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+% 	\small
+% 	\imprimirautor
+% 	%Sobrenome, Nome do autor
+	
+% 	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+% 	\imprimirlocal, \imprimirdata-
+	
+% 	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+	
+% 	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+% 	\hspace{0.5cm}
+% 	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+% 	\imprimirdata.}\\
+	
+% 	\hspace{0.5cm}
+% 		1. Palavra-chave1.
+% 		2. Palavra-chave2.
+% 		2. Palavra-chave3.
+% 		I. Orientador.
+% 		II. Universidade xxx.
+% 		III. Faculdade de xxx.
+% 		IV. Título 			
+% 	\end{minipage}}
+% 	\end{center}
+\end{fichacatalografica}
+% ---
+
+% % ---
+% % Inserir errata
+% % ---
+% \begin{errata}
+% Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+
+% \vspace{\onelineskip}
+
+% FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+% reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+% rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+% cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+% Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+% \begin{table}[htb]
+% \center
+% \footnotesize
+% \begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%   \hline
+%    \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%     \hline
+%     1 & 10 & auto-conclavo & autoconclavo\\
+%    \hline
+% \end{tabular}
+% \end{table}
+
+% \end{errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+
+%
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    \textbf{Centro Federal de Educação Tecnológica de Minas Gerais}
+
+    Curso de Engenharia de Computação
+
+    Avaliação do Trabalho de Conclusão de Curso
+  \end{center}
+
+  \vspace{1cm}
+
+  \noindent
+  Aluno: Rafael Dias Campos
+
+  \noindent
+  Título do trabalho: Jogo de Xadrez com Manipuladores Robóticos
+
+  \noindent
+  Data da defesa: 30/06/2023
+
+  \noindent
+  Horário: 14:00
+
+  \noindent
+  Local da defesa: CEFET-MG Campus II à Avenida Amazonas 7675. Prédio 17 (DECOM), sala 401. 
+
+  \vspace{1cm}
+
+  \begin{center}
+    O presente Trabalho de Conclusão de Curso foi avaliado pela seguinte banca:
+
+    \vspace{1cm}
+
+    Professor Ramon da Cunha Lopes - Orientador
+
+    Departamento de Computação
+
+    Centro Federal de Educação Tecnológica de Minas Gerais
+
+    \vspace{1cm}
+
+    Professora Mara Cristina da Silveira Coelho - Membro da banca de avaliação
+
+    Departamento de Computação
+
+    Centro Federal de Educação Tecnológica de Minas Gerais
+
+    \vspace{1cm}
+
+    Professor Rogério Martins Gomes - Membro da banca de avaliação
+
+    Departamento de Computação
+
+    Centro Federal de Educação Tecnológica de Minas Gerais   
+
+    \vspace{1cm}
+
+    Professor Tales Argolo Jesus - Membro da banca de avaliação
+
+    Departamento de Computação
+
+    Centro Federal de Educação Tecnológica de Minas Gerais
+ 
+  \end{center}
+  
+\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+% \begin{dedicatoria}
+%    \vspace*{\fill}
+%    \centering
+%    \noindent
+%    \textit{Dedico este trabalho aos alunos(as) do CEFET-MG.} \vspace*{\fill}
+% \end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+% \begin{agradecimentos}
+% Agradeço ao Latex e às pessoas que contribuiram com o desenvolvimento do Abntex2 por facilitarem a vida dos graduandos.
+% \end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+% \begin{epigrafe}
+%     \vspace*{\fill}
+% 	\begin{flushright}
+% 		\textit{``As pessoas costumam dizer que a motivação não dura sempre. Bem, nem o efeito do banho, por isso recomenda-se diariamente.''\\
+% 		(Zig Ziglar)}
+% 	\end{flushright}
+% \end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}
+  Atualmente, existe uma grande procura por funcionários especializados em Tecnologia da Informação (TI) e áreas similares, sendo percebida no mundo todo uma carência de profissionais qualificados.
+  Esse problema ocorre parcialmente devido a um desinteresse à capacitação técnica por parte de crianças e jovens, frequentemente devido a uma concepção de que essas áreas são difíceis.
+  Com o foco neste aspecto, esse projeto visa desenvolver um sistema que implementa o jogo de Xadrez utilizando manipuladores robóticos.
+  Este sistema pode ser apresentado para crianças e jovens em feiras educativas e eventos similares com o objetivo de introduzir conceitos básicos e instigar o interesse pelas áreas de computação, elétrica e controle.
+  Sistemas já existentes para mover peças de xadrez com braços mecânicos geralmente apresentam um custo elevado, pois priorizam a velocidade e precisão nos movimentos para que uma máquina jogue contra um jogador humano em campeonatos.
+  Por isso, eles não são muito adequados para usos educacionais e têm-se a necessidade de desenvolver um sistema mais barato e com foco na simplicidade e na capacidade de proporcionar divertimento para os jogadores.
+ 
+  \vspace{\onelineskip} 
+  \noindent 
+  \textbf{Palavras-chave}: Manipuladores Robóticos. Controle Digital. Xadrez.
+
+ %Currently, there is a great demand for specialized professionals in IT and similar areas, and it is perceived worldwide a shortage of qualified professionals. This problem occurs partially due to a lack of interest in technical training on the part of children and young people, often due to a misconception that these areas are difficult and/or uninteresting. Focusing on this aspect, this project aims to develop a low-cost system that implements the game of chess using robotic arms. This system can be presented to children and young people in educational fairs and similar events with the aim of instigating interest in learning by introducing basic concepts  in the areas of computing, electrical engineering and control systems engineering.
+
+ %Atualmente, existe uma grande procura por funcionários especializados em Tecnologia da Informação (TI) e áreas similares, sendo percebida no mundo todo uma grande carência de profissionais para atuar nessas áreas. Esse problema ocorre parcialmente devido a um desinteresse à capacitação técnica por parte de crianças e jovens, frequentemente devido a uma concepção de que essas áreas são difíceis e/ou desinteressantes. Com o foco neste aspecto, esse projeto visa desenvolver um sistema de baixo custo que implementa um jogo de xadrez por meio de manipuladores robóticos. Esse sistema pode ser apresentado para crianças e jovens em feiras científicas e outros eventos, com o objetivo de instigar o interesse pelo aprendizado ao introduzir conceitos básicos de computação, engenharia elétrica e controle de sistemas.
+
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+  Currently, there is a great demand for specialized professionals in IT and in similar areas, and it is perceived a worldwide shortage of qualified professionals.
+  This problem occurs partially due to a lack of interest in technical training on the part of children and young adults, often due to a conception that these areas are difficult.
+  Focusing on this aspect, this project aims to develop a low-cost system that implements the game of chess using robotic arms.
+  This system can be presented to children and young adults in educational fairs and similar events with the aim of instigating interest in the areas of computing, electrical engineering and control systems engineering.
+  Existing systems to move chess pieces with robotic arms usually have a high cost, as they prioritize speed and precision in movements so that a machine can play against a human player in tournaments.
+  Therefore, they are not very suitable for educational uses and there is a need to develop a cheaper system and with a focus on simplicity and the ability to provide fun for players.
+
+   \vspace{\onelineskip} 
+   \noindent 
+   \textbf{Keywords}: Robotic Arms. Digital Control. Chess.
+ \end{otherlanguage*}
+\end{resumo}
+
+
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+  \item[ADC] \textit{Analog to Digital Converter} [Conversor Analógico Digital]
+  \item[CI] Circuito Integrado
+  \item[CEFET-MG] Centro Federal de Educação Tecnológica de Minas Gerais
+  \item[STEM] \textit{Science, Technology, Engineering and Mathematics} [Ciência, Tecnologia, Engenharia e Matemática]
+  \item[PID] \textit{Proportional Integral Derivative} [Proporcional Integral Derivativo]
+  \item[PWM] \textit{Pulse Width Modulation} [Modulação de Largura de Pulso]
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
