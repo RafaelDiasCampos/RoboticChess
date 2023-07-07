@@ -2,22 +2,23 @@
 \label{cap:desenvolvimento}
 
 Após o planejamento do projeto, foi feito o desenvolvimento de cada etapa.
-Inicialmente, foi feito o desenvolvimento da placa de controle para poder acionar os motores.
+Inicialmente, foi feito o desenvolvimento do circuito de acionamento para poder acionar os motores.
 Em seguida, o \textit{software} para o microcontrolador foi desenvolvido para realizar a leitura dos dados da manete e controlar o manipulador robótico.
-Por último, foi desenvolvido o \textit{software} para o computador, que implementa a lógica do jogo de xadrez.
+Em sequência, foi desenvolvido o \textit{software} para o computador, que implementa a lógica do jogo de xadrez.
+Por fim, foi feita uma análise do desempenho do sistema.
 
-\section[Desenvolvimento da placa de controle]{Desenvolvimento da placa de controle}
-\label{sec:desenvolvimentoPlacaControle}
+\section[Desenvolvimento do circuito de acionamento]{Desenvolvimento do circuito de acionamento}
+\label{sec:desenvolvimentoCircuitoAcionamento}
 
-Primeiramente, foi feito o desenvolvimento da placa de controle dos manipuladores, pois ela é necessária para as próximas etapas do projeto.
+Primeiramente, foi feito o desenvolvimento do circuito de acionamento dos manipuladores, pois ele é necessário para as próximas etapas do projeto.
 Para isso, foi necessário definir quais componentes utilizar e como conectá-los.
 
-Conforme descrito na subseção \ref{sub:placaControle}, a placa de controle deve utilizar uma ponte H para o controle de cada junta.
+Conforme descrito na subseção \ref{sub:circuitoAcionamento}, o circuito de acionamento deve utilizar uma ponte H para o controle de cada junta.
 Para isso, foi escolhido o CI L293D, que possui duas pontes H e suporta tensões de 12V.
 Como é necessário controlar 6 motores, foram utilizados 3 CI L293D.
 
 Para simplificar o controle e evitar problemas de acionamento duplo das entradas das pontes H, foi utilizado o CI 74LS02 como um inversor lógico.
-Dessa forma, a placa de controle possui para cada junta uma entrada de \textit{Enable} para ligar/desligar o acionamento da junta, e uma porta de \textit{Direction} para definir a direção de movimentação dela.
+Dessa forma, o circuito de acionamento possui para cada junta uma entrada de \textit{Enable} para ligar/desligar o acionamento da junta, e uma porta de \textit{Direction} para definir a direção de movimentação dela.
 A partir dessas entradas, o CI L293D é acionado e o motor é controlado.
 A Figura \ref{fig:esquematicoSimplificado} mostra o esquemático simplificado de um CI L293D e um CI 74LS02.
 
@@ -30,16 +31,16 @@ A Figura \ref{fig:esquematicoSimplificado} mostra o esquemático simplificado de
     \label{fig:esquematicoSimplificado}
 \end{figure}
 
-Com os componentes principais definidos foi feito o desenvolvimento do esquemático da placa de controle com o auxílio do software \textit{Altium Designer}.
-O Apêndice \ref{apendice:esquematico-placa-controle} mostra o esquemático completo da placa de controle.
+Com os componentes principais definidos foi feito o desenvolvimento do esquemático do circuito de acionamento com o auxílio do \textit{software} \textit{Altium Designer}.
+O Apêndice \ref{apendice:esquematicoCircuitoAcionamento} mostra o esquemático completo do circuito de acionamento.
 Nesse esquemático foram adicionados resistores de \textit{pulldown} para garantir que as entradas dos CI L293D e 74LS02 permaneçam em nível lógico baixo caso não estejam conectadas ao microcontrolador.
-Também foram adicionadas \textit{LEDs} para indicar a alimentação de 5V e 12V da placa.
+Também foram adicionadas \textit{LEDs} para indicar a alimentação de 5V e 12V do circuito.
 
-Após o desenvolvimento do esquemático, foi feita a montagem da Placa de Circuito Impresso (PCB), ainda com o auxílio do software \textit{Altium Designer}.
+Após o desenvolvimento do esquemático, foi feita a montagem da Placa de Circuito Impresso (PCB), ainda com o auxílio do \textit{software} \textit{Altium Designer}.
 Para isso, os componentes foram posicionados no \textit{layout} da placa, tendo em vista a economia de espaço e a necessidade de manter os componentes próximos para facilitar sua conexão.
 Em seguida, as trilhas e vias que realizam a conexão dos componentes foram desenhadas. 
 Para permitir a conexão de todos os componentes, foi necessário utilizar uma placa com 2 camadas.
-A Figura \ref{fig:placaControleLayout} mostra o \textit{layout} final da placa de controle.
+A Figura \ref{fig:circuitoAcionamentoLayout} mostra o \textit{layout} final do circuito de acionamento.
 
 Com o \textit{layout} finalizado, foi feita a produção da PCB de forma manual.
 Para isso, o negativo do \textit{layout} foi impresso em uma folha de transparência.
@@ -47,10 +48,10 @@ Depois, uma placa de circuito impresso de duas camadas foi cortada no tamanho de
 
 Em seguida, foi feita a transferência do \textit{layout} para a placa.
 Para isso, uma fina camada de tinta fotossensível destinada para PCB foi aplicada sobre a placa.
-Essa tinta foi pré-curada à 75$^{\circ}$C durante 15 minutos com o auxílio de uma base de aquecimento, para garantir que ela não se descolasse da placa.
+Essa tinta foi pré-curada a 75$^{\circ}$C durante 15 minutos com o auxílio de uma base de aquecimento, para garantir que ela não se descolasse da placa.
 Após a pré-cura, a tinta foi exposta à luz ultravioleta por 3 minutos, utilizando a transparência com o \textit{layout} como máscara.
 Em seguida, a placa foi submersa em uma solução de carbonato de sódio para realizar a revelação do \textit{layout}.
-Após a placa ser revelada, a tinta foi curada à 85$^{\circ}$C durante 30 minutos.
+Após a placa ser revelada, a tinta foi curada a 85$^{\circ}$C durante 30 minutos.
 
 Esse processo de transferência do \textit{layout} foi repetido para a segunda camada da placa.
 Em seguida, foi utilizada uma solução de percloreto de ferro para corroer as áreas de cobre que não receberam tinta.
@@ -58,29 +59,31 @@ Após a corrosão, a placa foi mergulhada em uma solução de hidróxido de sód
 
 Após a corrosão da PCB, foi feita a perfuração das vias e dos furos para os componentes.
 Por fim, foi feita a soldagem dos componentes na placa e a conexão das vias.
-A Figura \ref{fig:placaControle} mostra a placa de controle montada.
+A Figura \ref{fig:circuitoAcionamento} mostra o circuito de acionamento montado.
 
 \begin{figure}[H]
-    \begin{minipage}{.5\textwidth}
+    \begin{minipage}{.45\textwidth}
         \centering
-        \caption{Layout da placa de controle}
+        \caption{Layout do circuito de acionamento}
         \includegraphics[keepaspectratio=true, width=0.9\linewidth]
             {img/placa-controle-layout.png}
         \fonte{Do próprio autor}
-        \label{fig:placaControleLayout}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
+        \label{fig:circuitoAcionamentoLayout}
+    \end{minipage}
+    \begin{minipage}{.10\textwidth}
+    \end{minipage}
+    \begin{minipage}{.45\textwidth}
         \centering
-        \caption{Placa de controle produzida}
-        \includegraphics[keepaspectratio=true, width=0.9\linewidth]
+        \caption{Circuito de acionamento produzido}
+        \includegraphics[keepaspectratio=true, width=0.95\linewidth]
             {img/placa-controle.jpg}
         \fonte{Do próprio autor}
-        \label{fig:placaControle}
-    \end{minipage}%    
+        \label{fig:circuitoAcionamento}
+    \end{minipage}
 \end{figure}
 
-\section[Leitura da manete]{Leitura da manete}
-\label{sec:leituraManete}
+\section[Leitura de comandos da manete]{Leitura de comandos da manete}
+\label{sec:leituraComandosManete}
 
 Após a montagem da placa de controle, foi iniciado o desenvolvimento do \textit{software} para o microcontrolador,
 utilizando o \textit{software} \textit{PlatformIO}.
@@ -89,7 +92,7 @@ Inicialmente, foi implementada uma funcionalidade para realizar a leitura dos da
 conforme descrito na subseção \ref{sub:maneteJogador}, possui dois \textit{joysticks} com dois eixos e um botão cada.
 
 Para realizar a leitura dos eixos dos \textit{joysticks}, foram utilizadas as entradas analógicas do microcontrolador.
-Como o ESP32 utiliza um conversor analógico-digital de 12 bits, os valores lidos variam de 0 a 4095.
+Como o ESP32 utiliza um conversor analógico-digital (ADC) de 12 bits, os valores lidos variam de 0 a 4095.
 Valores próximos de 2048 representam a posição central do \textit{joystick}, enquanto valores próximos de 0 ou 4095 representam as posições extremas.
 Para aprimorar a usabilidade da manete, foi implementada uma área de \textit{deadzone}, na qual o valor lido é considerado como zero,
 para evitar que o manipulador se movimente sem a intenção do usuário.
@@ -104,9 +107,19 @@ Os valores lidos são armazenados em uma variável, que é utilizada por outras 
 
 Para ler a posição das juntas do manipulador robótico, foi utilizado como base o \textit{software} desenvolvido anteriormente para ler os dados das manetes.
 
-Primeiramente, foi utilizado um multímetro para medir o valor de tensão de saída do potenciômetro de cada junta em diferentes ângulos.
+Primeiramente, foi utilizado um programa simples para medir os valores de tensão do potenciômetro de cada junta em diferentes ângulos, utilizando o módulo de \textit{ADC} do microcontrolador.
 A partir disso, foi observado que a tensão de saída altera de forma aproximadamente linear com o ângulo,
-e foi criada uma equação linear para cada junta, que relaciona a leitura realizada pelo microcontrolador com seu ângulo atual.
+e foi criada uma equação linear para cada junta, que relaciona a leitura realizada pelo microcontrolador com seu ângulo atual,
+conforme os dados apresentados na Figura \ref{fig:leituraJuntas}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Leitura da posição das juntas}
+    \includegraphics[keepaspectratio=true, width=\textwidth]
+    	{img/leitura-juntas.png}
+    \fonte{Do próprio autor}
+    \label{fig:leituraJuntas}
+\end{figure}
 
 Com base nessas equações, foi implementada uma funcionalidade para calcular os valores que devem ser lidos pelo ESP32 quando o manipulador robótico estiver em uma determinada configuração.
 
@@ -114,30 +127,32 @@ Com base nessas equações, foi implementada uma funcionalidade para calcular os
 \label{sec:controleMotores}
 
 O controle dos motores, responsável por mover o manipulador robótico para que ele atinja uma determinada configuração,
-foi incorporado no software desenvolvido na seção anterior.
+foi incorporado no \textit{software} desenvolvido na seção anterior.
 
 Para isso, foi implementado um controlador digital PID no microcontrolador ESP32.
 Esse algoritmo realiza a leitura dos valores de tensão de cada junta e obtém o erro a partir da diferença entre o valor desejado e o valor atual.
 A partir desse erro, é calculada a integral dos erros até o momento e a derivada entre o erro atual e o último erro.
-Por fim, esses valores (erro atual, integral dos erros e derivada do erro) são multiplicados, respectivamente, por três constantes (Kp, Ki e Kd) e os resultados são somados.
+Por fim, esses valores (erro atual, integral dos erros e derivada do erro) são multiplicados, respectivamente, por três parâmetros (\textit{Kp}, \textit{Ki} e \textit{Kd}) e os resultados são somados.
 
 Esse valor final é utilizado para definir os sinais de saída do microcontrolador para a placa de controle.
-O módulo desse valor de saída do PID define o Duty Cycle do sinal de PWM, enquanto o seu sinal (positivo ou negativo) define a direção de movimentação do motor.
+O módulo desse valor de saída do PID define o \textit{Duty Cycle} do sinal de \textit{PWM}, enquanto o seu sinal (positivo ou negativo) define a direção de movimentação do motor.
 
-Depois da implementação do controlador PID foram feitos diversos testes para encontrar valores adequados para as constantes Kp, Ki e Kd.
+Depois da implementação do controlador PID foram feitos diversos testes para encontrar valores adequados para os parâmetros \textit{Kp}, \textit{Ki} e \textit{Kd}.
 Para isso, foi enviado um comando para movimentar uma junta para um determinado ângulo.
 Após a junta estabilizar na posição desejada, foi enviado um outro comando para movimentá-la para um ângulo diferente, distante do primeiro.
-Para alguns valores das constantes, foi observado um comportamento muito lento do sistema,
+Para alguns valores dos parâmetros, foi observado um comportamento muito lento do sistema,
 enquanto para outros valores foi observado um comportamento muito instável, com \textit{overshoot} e oscilações.
-Depois de diversos testes, foram encontrados os valores apresentados na Tabela \ref{tab:constantesPID},
+Depois de diversos testes, foram encontrados os valores apresentados na Tabela \ref{tab:parametrosPID},
 que possibilitam um movimento relativamente rápido e estável do manipulador robótico.
+Durante esses testes, foi observado um comportamento instável do sistema para valores altos de \textit{Kd},
+portanto foi necessário utilizar um valor baixo para esse parâmetro.
 
 \begin{table}[H]
     \centering
-    \caption{Constantes do controlador PID}
+    \caption{Parâmetros do controlador PID}
     \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{Junta} & \textbf{Kp} & \textbf{Ki} & \textbf{Kd} \\
+        \textbf{Junta} & \textbf{\textit{Kp}} & \textbf{\textit{Ki}} & \textbf{\textit{Kd}} \\
         \hline
         Torso    & 400 & 10 & 5 \\
         \hline
@@ -145,17 +160,18 @@ que possibilitam um movimento relativamente rápido e estável do manipulador ro
         \hline
         Cotovelo & 500 & 30 & 0 \\
         \hline
-        Pulso    & 100 & 2 & 0.1 \\
+        Pulso    & 100 & 2 & 0,1 \\
         \hline        
     \end{tabular}
     \fonte{Do próprio autor}
-    \label{tab:constantesPID}
+    \label{tab:parametrosPID}
 \end{table}
 
 \section[Cálculo dos ângulos desejados]{Cálculo dos ângulos desejados}
 \label{sec:calculoAngulosDesejados}
 
-Após implementar o controle do manipulador a  partir dos ângulos desejados para cada junta, foi necessário desenvolver o código que realiza o cálculo da configuração necessária para que o manipulador robótico alcance uma determinada posição no espaço.
+Após implementar o controle do manipulador a partir dos ângulos desejados para cada junta, foi necessário desenvolver o código que realiza o cálculo da configuração necessária para que o manipulador robótico alcance uma determinada posição no espaço,
+por meio da cinemática reversa.
 
 Primeiramente, foi feita uma análise de como cada junta do manipulador robótico se movimenta.
 Como pode ser observado na Figura \ref{fig:juntasManipulador},
@@ -173,13 +189,13 @@ Por outro lado, o ombro, cotovelo e pulso se movimentam verticalmente, paralelam
 
 Em seguida, foi feita uma equação para o ângulo da primeira articulação (torso).
 Como essa é a única junta capaz de rotacionar perpendicularmente ao eixo Z, seu ângulo pode ser calculado de forma independente das outras juntas, 
-através apenas dos valores de x e y da posição desejada, ignorando o valor de z.
-Como é possível observar na Figura \ref{fig:calculoAnguloTorso}, o ângulo dessa junta deve formar um triângulo retângulo com catetos de comprimento x e y.
-A partir disso, o ângulo pode ser calculado como:
+a partir apenas dos valores de \textit{x} e \textit{y} da posição desejada, ignorando o valor de \textit{z}.
+Como é possível observar na Figura \ref{fig:calculoAnguloTorso}, o ângulo dessa junta deve formar um triângulo retângulo com catetos de comprimento \textit{x} e \textit{y}.
+A partir disso, o ângulo do torso ($\alpha$) pode ser calculado como:
 
 \begin{dmath}
 \label{eq:anguloTorso}
-    ânguloTorso = \arctan\left(\frac{x}{y}\right)
+    \alpha = \arctan\left(\frac{x}{y}\right)
 \end{dmath}
 
 \begin{figure}[H]
@@ -193,11 +209,24 @@ A partir disso, o ângulo pode ser calculado como:
 
 Em seguida, foi feito o cálculo dos ângulos restantes (ombro, cotovelo e pulso).
 Para que seja possível pegar as peças sem interferir nas outras em casas próximas, é indispensável que a garra do manipulador esteja sempre perpendicular com o tabuleiro.
-Dessa forma, apenas é necessário calcular os ângulos das duas juntas restantes de forma que o ombro termine nas posições x e y desejadas e a uma altura igual ao z desejado mais o comprimento da garra.
+Dessa forma, apenas é necessário calcular os ângulos do ombro e do cotovelo de forma que o ombro termine nas posições \textit{x} e \textit{y} desejadas,
+entretanto sua altura final deve ser igual ao \textit{z} desejado acrescentado do comprimento da garra, para que a ponta da garra esteja no \textit{z} desejado.
 
-Com base nisso, podemos simplificar os dados necessários para calcular os ângulos do ombro e do cotovelo.
+Com base nisso, podemos simplificar os dados necessários para calcular os ângulos do ombro ($\beta$) e do cotovelo ($\theta$).
 Essa parte do manipulador deve ter um comprimento total definido pela hipotenusa do triângulo retângulo apresentado na Figura \ref{fig:calculoAnguloTorso}, com catetos x e y.
-E sua altura total deve ser igual ao z desejado, subtraído dos comprimentos da garra e do torso do manipulador. Portanto, temos as seguintes equações:
+E sua altura total deve ser igual ao z desejado, subtraído dos comprimentos da garra e do torso do manipulador.
+Isso pode ser visualizado mais claramente na Figura \ref{fig:visualizacaoAnguloOmbroCotovelo}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Visualização do ângulo do ombro e do cotovelo}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/visualizacao-ombro-cotovelo.png}
+    \fonte{Do próprio autor}
+    \label{fig:visualizacaoAnguloOmbroCotovelo}
+\end{figure}
+
+Portanto, temos as seguintes equações, que relacionam os valores de \textit{x}, \textit{y}, \textit{z}, comprimento do torso ($\overline{torso}$) e comprimento da garra ($\overline{garra}$) com o comprimento e altura do conjunto ombro-cotovelo:
 
 \begin{dmath}
 \label{eq:comprimentoOmbroCotovelo}
@@ -206,44 +235,46 @@ E sua altura total deve ser igual ao z desejado, subtraído dos comprimentos da 
 
 \begin{dmath}
 \label{eq:alturaOmbroCotovelo}
-    altura = z - comprimentoTorso - comprimentoGarra
+    altura = z - \overline{torso} - \overline{garra}
 \end{dmath}
 
 A partir desses valores de comprimento e altura, o cálculo desses ângulos se reduz a um problema de cinemática inversa de um manipulador com dois graus de liberdade.
 Existem duas soluções para esse tipo de problema, uma com o ângulo do segundo eixo positivo em relação ao primeiro, e outra com esse ângulo negativo.
-Devido às limitações da movimentação do ombro do manipulador utilizado, foi escolhida a solução na qual o ângulo do cotovelo é negativo, descrita pelas equações abaixo. \cite{inverse_kinematics}
+Devido às limitações da movimentação do ombro do manipulador utilizado, foi escolhida a solução na qual o ângulo do cotovelo é negativo \cite{inverse_kinematics}.
+As equações a seguir podem ser utilizadas para calcular o ângulo do ombro ($\beta$) e do cotovelo ($\theta$) a partir do comprimento e altura do conjunto ombro-cotovelo, calculados anteriormente,
+assim como do comprimento do braço ($\overline{braço}$) e do antebraço ($\overline{antebraço}$).
 
 \begin{dmath}
 \label{eq:anguloCotovelo}
-    ânguloCotovelo = -\arccos\left(\frac{comprimento^2 + altura^2 - comprimentoBraço^2 - comprimentoAntebraço^2}{2 \cdot comprimentoBraço \cdot comprimentoAntebraço}\right)
+    \theta = -\arccos\left(\frac{comprimento^2 + altura^2 - \overline{braço}^2 - \overline{antebraço}^2}{2 \cdot \overline{braço} \cdot \overline{antebraço}}\right)
 \end{dmath}
 
 \begin{dmath}
 \label{eq:anguloCotovelo}
-    ânguloOmbro = \arctan{\frac{altura}{comprimento}} + \arcsin\left(\frac{comprimentoAntebraço \cdot \sin\left(ânguloCotovelo\right)}{comprimentoBraço + comprimentoAntebraço \cdot \cos\left(ânguloCotovelo\right)}\right)
+    \beta = \arctan{\frac{altura}{comprimento}} + \arcsin\left(\frac{\overline{antebraço} \cdot \sin\left(\theta\right)}{\overline{braço} + \overline{antebraço} \cdot \cos\left(\beta\right)}\right)
 \end{dmath}
 
-Por último, resta calcular o ângulo do pulso, que deve ficar perpendicular ao tabuleiro.
+Por último, resta calcular o ângulo do pulso ($\gamma$), que deve ficar perpendicular ao tabuleiro.
 Para isso, pode ser descrito um quadrilátero envolvendo o braço, antebraço, pulso e o tabuleiro, conforme representado na Figura \ref{fig:calculoAnguloPulso}.
 Como a soma dos ângulos internos de um quadrilátero deve ser igual a 360$^{\circ}$, pode-se obter a equação abaixo:
 
 \begin{dmath}
 \label{eq:anguloPulso}
-        ânguloPulso = 90 - ânguloOmbro - ânguloCotovelo
+        \gamma = 90^{\circ} - \beta - \theta
 \end{dmath}
 
 \begin{figure}[H]
     \centering
     \caption{Cálculo do ângulo do pulso}
-    \includegraphics[keepaspectratio=true, width=0.4\textwidth]
-    	{img/Ângulo Pulso.png}
+    \includegraphics[keepaspectratio=true, width=0.7\textwidth]
+    	{img/Cálculo ângulo pulso.png}
     \fonte{Do próprio autor}
     \label{fig:calculoAnguloPulso}
 \end{figure}
 
 Para facilitar a visualização dos ângulos e permitir uma comparação visual entre a posição desejada do manipulador e sua posição real,
 foi desenvolvido um simples \textit{script} em Python que implementa um modelo simplificado do manipulador.
-Esse \textit{script} permite movimentar o modelo para uma determinada posição x, y e z, e exibe os ângulos calculados para cada junta.
+Esse \textit{script} permite movimentar o modelo para uma determinada posição \textit{x}, \textit{y} e \textit{z}, e exibe os ângulos calculados para cada junta.
 A Figura \ref{fig:modeloManipulador} mostra o modelo desenvolvido.
 
 \begin{figure}[H]
@@ -262,10 +293,10 @@ Depois de desenvolvida a funcionalidade de cálculo dos ângulos para movimentar
 
 Para isso, foi primeiramente definido de forma prática uma altura de movimentação do manipulador, que permite que ele mova livremente sem derrubar nenhuma peça e 
 uma altura para pegar as peças, na qual a garra consegue alcançar e pegar qualquer peça.
-Em seguida, foram mapeadas as coordenadas x e y de todas as casas do tabuleiro. Devido à uma limitação no tamanho do manipulador utilizado, não foi possível alcançar algumas casas, portanto as peças nessas casas devem ser movimentadas manualmente pelo jogador.
+Em seguida, foram mapeadas as coordenadas \textit{x} e \textit{y} de todas as casas do tabuleiro. Devido à uma limitação no tamanho do manipulador utilizado, não foi possível alcançar algumas casas, portanto as peças nessas casas devem ser movimentadas manualmente pelo jogador.
 
-A partir disso, foi implementada uma funcionalidade para movimentar o manipulador para uma determinada casa do tabuleiro, apenas nos eixos x e y.
-Em seguida, foi adicionada uma funcionalidade para pegar e outra para soltar a peça que está na casa atual do manipulador, movimentando-o apenas no eixo z e acionando a garra.
+A partir disso, foi implementada uma funcionalidade para movimentar o manipulador para uma determinada casa do tabuleiro, apenas nos eixos \textit{x} e \textit{y}.
+Em seguida, foi adicionada uma funcionalidade para pegar e outra para soltar a peça que está na casa atual do manipulador, movimentando-o apenas no eixo \textit{z} e acionando a garra.
 Por fim, foi feita uma funcionalidade para movimentar o manipulador para a posição de repouso e outra para movimentá-lo para a posição de descarte de peças.
 
 Devido à relação não linear entre os ângulos das juntas e a posição do manipulador,
@@ -279,7 +310,7 @@ de forma que o manipulador se movimente de forma mais suave e controlada.
 
 Após finalizar a movimentação das peças, foi desenvolvido o módulo responsável por realizar a comunicação entre o microcontrolador e o computador.
 
-Conforme descrito na subseção \ref{sub:computador}, essa comunicação é feita através do protocolo serial, por meio de um cabo USB.
+Conforme descrito na subseção \ref{sub:computador}, essa comunicação é feita via protocolo serial, por meio de um cabo USB.
 Entretanto, ainda era necessário definir o formato dos dados que serão enviados e recebidos.
 
 Para isso, foram definidos alguns comandos que podem ser enviados pelo computador para o microcontrolador, conforme descrito na Tabela \ref{tab:comandosMicrocontrolador}.
@@ -291,7 +322,7 @@ Para isso, foram definidos alguns comandos que podem ser enviados pelo computado
         \hline
         \textbf{Comando} & \textbf{Descrição} & \textbf{Formato} \\
         \hline
-        move & Movimentar para casa & move x y \\
+        move & Movimentar para casa & move \textit{x} \textit{y} \\
         \hline
         grab & Pegar peça & grab \\
         \hline
@@ -301,7 +332,7 @@ Para isso, foram definidos alguns comandos que podem ser enviados pelo computado
         \hline
         reset & Movimentar para posição de repouso & reset \\
         \hline
-        wait & Aguarde por x milisegundos & wait x \\
+        wait & Aguarde por \textit{n} milisegundos & wait \textit{n} \\
         \hline
     \end{tabular}
     \fonte{Do próprio autor}
@@ -333,28 +364,169 @@ Para possibilitar o controle manual do manipulador, foram definidas algumas mens
 
 Depois de finalizar a comunicação entre o microcontrolador e o computador, foi desenvolvido o \textit{software} responsável por implementar a lógica do jogo de xadrez.
 
-O \textit{software} foi desenvolvido em Python, utilizando a biblioteca stockfish \cite{stockfish_python} para realizar comunicação com a \textit{engine} de xadrez Stockfish 15.1 \cite{stockfish_engine}.
+O \textit{software} foi desenvolvido em Python, utilizando a biblioteca \textit{stockfish} \cite{stockfish_python} para realizar comunicação com a \textit{engine} de xadrez \textit{Stockfish} 15.1 \cite{stockfish_engine}.
 Essa \textit{engine} é responsável por verificar quais movimentos são válidos e calcular qual movimento o computador deve jogar em cada turno.
 
-Além da utilização da biblioteca stockfish, foi necessário implementar algumas funcionalidades manualmente que não existem nela.
-Em primeiro lugar, foi implementada uma função para adquirir quais movimentos são válidos para a posição atual do tabuleiro, utilizando o comando \textit{go perft 1} da \textit{engine} Stockfish.
+Além da utilização da biblioteca \textit{stockfish}, foi necessário implementar algumas funcionalidades manualmente que não existem nela.
+Em primeiro lugar, foi implementada uma função para adquirir quais movimentos são válidos para a posição atual do tabuleiro, utilizando o comando \textit{go perft 1} da \textit{engine} \textit{Stockfish}.
 Em seguida, foi desenvolvida uma funcionalidade para detectar quando a partida acabou, verificando se não existe mais nenhum movimento válido para o jogador atual.
-Por último, foi feita uma função para verificar se o jogo terminou empatado, verificando a avaliação da posição atual do tabuleiro pela \textit{engine} Stockfish.
+Por último, foi feita uma função para verificar se o jogo terminou empatado, verificando a avaliação da posição atual do tabuleiro pela \textit{engine} \textit{Stockfish}.
 
 Para comunicar com o microcontrolador, foi utilizada a biblioteca PySerial \cite{pyserial}.
 Através dessa biblioteca, é possível enviar e receber as mensagens descritas na seção \ref{sec:comunicacaoComputador}.
 Após enviar uma mensagem para o microcontrolador, o \textit{software} aguarda uma mensagem de confirmação para indicar o sucesso ou falha da execução do comando.
 
-O programa desenvolvido suporta dois modos de jogo: jogar contra o computador ou contra outra pessoa.
-No primeiro modo, o \textit{software} Stockfish 15.1 é utilizado para calcular qual movimento o computador irá jogar, 
-enquanto no segundo modo, o jogador que estiver controlando o manipulador pode movimentá-lo pelas casas do tabuleiro e pegar peças sem restrição, entretanto ao tentar soltar uma peça, é feita uma consulta ao Stockfish 15.1 para validar se a jogada desejada é válida.
+Ao iniciar uma partida, o programa exibe uma mensagem para o usuário escolher qual modo de jogo deseja utilizar: jogar contra o computador ou contra outra pessoa.
+No primeiro modo, o \textit{software} \textit{Stockfish} 15.1 é utilizado para calcular qual movimento o computador irá jogar, 
+enquanto no segundo modo, o jogador que estiver controlando o manipulador pode movimentá-lo pelas casas do tabuleiro e pegar peças sem restrição, entretanto ao tentar soltar uma peça, é feita uma consulta ao \textit{Stockfish} 15.1 para validar se a jogada desejada é válida.
 Em ambos os modos de jogo, os movimentos realizados pelo jogador humano que não controla o manipulador robótico devem ser digitados manualmente no computador.
+
+Em seguida, o programa exibe uma mensagem para o usuário escolher qual cor de peças deseja utilizar: brancas ou pretas.
+Depois disso, caso o usuário tenha escolhido jogar contra o computador, o programa exibe uma mensagem para o usuário escolher qual nível de dificuldade deseja utilizar.
+Esse nível pode variar de 1 a 20, sendo 1 o nível mais fácil e 20 o nível mais difícil.
+Por fim, o programa inicia a partida e exibe o tabuleiro atualizado a cada jogada, conforme ilustrado na Figura \ref{fig:softwareTabuleiro}.
+O usuário deve digitar o movimento que deseja realizar no formato \textit{<casa de origem><casa de destino>}, por exemplo \textit{e2e4} para mover o peão da casa \textit{e2} para a casa \textit{e4}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Tela do programa mostrando o tabuleiro atualizado}
+    \includegraphics[keepaspectratio=true, width=0.5\textwidth]
+    	{img/software-tabuleiro.png}
+    \fonte{Do próprio autor}
+    \label{fig:softwareTabuleiro}
+\end{figure}
 
 Ao detectar uma captura de peça, o programa primeiro controla o manipulador para movimentar a peça capturada para a posição de descarte.
 Em seguida é feita a movimentação da peça que capturou para a casa de destino.
 Foi feito um tratamento especial para capturas do tipo \textit{en passant}, pois nesses movimentos a peça capturada não está na casa de destino.
+Nesse caso, a casa do peão capturado pode ser obtido através da linha da peça capturadora e da coluna da casa de destino.
 
 Um outro tratamento especial foi feito para movimentos de roque, pois nesses movimentos duas peças são movimentadas ao mesmo tempo.
+Nesse caso, o manipulador primeiro movimenta o rei para a casa de destino e em seguida movimenta a torre para a casa de destino.
 
 Por fim, caso o manipulador robótico esteja jogando com as peças pretas,
 o programa realiza uma conversão da posição do tabuleiro para realizar o movimento adequado.
+Nesse caso, o tabuleiro é invertido horizontalmente e verticalmente,
+e as casas de origem e destino são convertidas para suas respectivas casas invertidas.
+Dessa forma, o manipulador pode movimentar as peças pretas da mesma forma que movimenta as peças brancas.
+
+A Figura \ref{fig:manipuladorRepouso} mostra o manipulador robótico em sua posição de repouso, aguardando o jogador humano realizar seu movimento.
+Depois disso, o computador realiza seu movimento e o manipulador se movimenta para a casa de origem da peça que deseja movimentar, conforme ilustrado na Figura \ref{fig:manipuladorMovimentandoPosicao}.
+Ao chegar na casa de origem, o manipulador se movimenta no eixo \textit{z} e pega a peça, como ilustrado na Figura \ref{fig:manipuladorPegandoPeça}.
+Após pegar a peça, o manipulador se movimenta para a casa de destino, conforme ilustrado na Figura \ref{fig:manipuladorLevandoPeça}.
+Em seguida, o manipulador se movimenta no eixo \textit{z} e solta a peça, como ilustrado na Figura \ref{fig:manipuladorSoltandoPeça}.
+Por fim, a Figura \ref{fig:manipuladorRetornandoRepouso} mostra o manipulador retornando para sua posição de repouso, onde aguarda o próximo movimento do jogador humano.
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico em posição de repouso}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/posicao-repouso.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorRepouso}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico movimentando para a casa de origem}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/movimentando-posicao.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorMovimentandoPosicao}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico pegando a peça}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/pegando-peca.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorPegandoPeça}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico levando a peça para a casa de destino}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/levando-peca.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorLevandoPeça}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico soltando a peça}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/soltando-peca.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorSoltandoPeça}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Manipulador robótico retornando para a posição de repouso}
+    \includegraphics[keepaspectratio=true, width=0.9\textwidth]
+    	{img/retornando-repouso.png}
+    \fonte{Do próprio autor}
+    \label{fig:manipuladorRetornandoRepouso}
+\end{figure}
+
+\section[Análise de Desempenho]{Análise de Desempenho}
+\label{sec:implementacaoLogicaXadrez}
+
+Depois de finalizado o desenvolvimento do sistema, foi feita uma análise de sua performance,
+com o objetivo de verificar quanto tempo o manipulador robótico leva para realizar um movimento.
+
+Para isso, foi jogada uma partida contra o computador, anotando o tempo gasto para cada movimento realizado pelo manipulador robótico.
+O resultados obtidos estão apresentados na Tabela \ref{tab:performance},
+utilizando a notação algébrica descrita na Subseção \ref{sub:xadrezNotacao}.
+O vídeo dessa partida pode ser acessado no link \url{https://youtu.be/6tGpsd19aSE}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tempo de execução de cada movimento}
+    \label{tab:performance}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        & \textbf{Humano} & \textbf{Computador} & \textbf{Tempo (s)} \\
+        \hline
+        1 & e4 & c5 & 20.7 \\
+        \hline
+        2 & Nf3 & e6 & 19.0 \\
+        \hline
+        3 & Nc3 & a6 & 23.2 \\
+        \hline
+        4 & Bc4 & b5 & 21.5 \\
+        \hline
+        5 & Bb3 & c4 & 20.9 \\
+        \hline
+        6 & Bxc4 & bxc4 & 41.8 \\
+        \hline
+        7 & d3 & cxd3 & 41.8 \\
+        \hline
+        8 & Qxd3 & Bb7 & 21.6 \\
+        \hline
+        9 & Be3 & Nf6 & 18.8 \\
+        \hline
+        10 & Ne5 & Nc6 & 21.2 \\
+        \hline
+        11 & O-O & Nxe5 & 40.0 \\
+        \hline
+        12 & Qe2 & Qc7 & 19.8 \\
+        \hline
+        13 & f3 & Bc5 & 19.8 \\
+        \hline
+        14 & Bxc5 & Qxc5+ & 41.4 \\
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Tempo médio}} & 26.5 \\
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Tempo médio movimento}} & 20.7 \\
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Tempo médio captura}} & 41.3 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Como pode ser observado na Tabela \ref{tab:performance}, o manipulador gasta em torno de 21 segundos para movimentar uma peça.
+Movimentos de captura requerem a movimentação de duas peças, portanto gastam o dobro do tempo.
+Esse tempo é relativamente alto para um jogo competitivo de xadrez, entretanto é adequado para o objetivo proposto neste trabalho.
