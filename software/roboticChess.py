@@ -13,7 +13,7 @@ class RoboticChess:
         DRAW = 2
 
     def __init__(self, port, baudrate=9600, engine_path=None, color=Color.WHITE, difficulty=15, players=1):
-        self.arm = armController.ArmController(port, baudrate)
+        #self.arm = armController.ArmController(port, baudrate)
         if engine_path is None:
             self.engine = engineController.EngineController(difficulty=difficulty)
         else:
