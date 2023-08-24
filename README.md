@@ -10,4 +10,4 @@ The `report` folder contains the full report made for this project (in Portugues
 The `software` folder contains the Python script used to run the engine.  
 The `tools` folder contains some additional tools and files created for this project.
 
-![Robotic Arm](report/TCC%20II/img/braco-tabuleiro.png)
+![Robotic Arm](Report/TCC%20II/img/braco-tabuleiro.png)
